@@ -98,3 +98,7 @@ Para la implementación del movimiento sobre el robot real, primero se realizó 
 Para el movimiento sobre un plano horizontal, se realizó la calibración del WorkObjecto sobre un plano horizontal real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/09f991a8-900e-4535-80b0-e8b4a91f5932
+
+Para el movimiento sobre un plano inclinado, se realizó la calibración del WorkObjecto sobre un plano inclinado real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/83f66e80-0ac9-4f75-965d-57e1d3276c18
