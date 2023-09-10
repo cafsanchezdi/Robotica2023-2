@@ -1,17 +1,15 @@
+# Carlos Felipe Sánchez & Felipe Cruz
 # Universidad Nacional de Colombia
 # Robótica - 2023-II
 # Laboratorio 1
+![Texto alternativo](./Imgs/ESCUDO.png)
 
-## Resultados de Aprendizaje:
+# Descripción de la solución planteada
+# Diagrama de flujo de acciones del robot
+# Plano de planta de la ubicación de cada uno de los elementos
+# Descripción de las funciones utilizadas
+# Diseño de la herramienta
+# Código en RAPID del módulo utilizado para el desarrollo de la práctica
+# Video que contenga la simulación en RobotStudio así como la implementación de la práctica con los robots reales
 
-- Conocer los elementos de un robot industrial.
-- Realizar calibración de herramientas en el robot real, así como en Robot Studio.
-- Identificar los tipos de movimientos en el espacio de la herramienta útiles para trabajos de manipulación.
-- Ampliar el manejo de funciones proporcionadas por Robot Studio.
 
-## Requisitos:
-
-- Robot Studio versión 5 o superior INSTALADO y activo.
-- Hoja de datos del manipulador industrial IRB 140.
-- Software CAD que permita exportar en formato .STL o .SAT.
-- Manipuladores industriales ABB IRB 140.
