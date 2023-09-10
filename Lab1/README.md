@@ -184,7 +184,6 @@ MODULE Module1
     CONST robtarget Target_2DEC4:=[[90,80,0],[0,0,1,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     CONST robtarget Home:=[[661.409,0,686.713],[0.642787609,0,0.766044443,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
     PROC main()
-        !Añada aquí su código
         Path_10;
     ENDPROC
     PROC Path_10()
