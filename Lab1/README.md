@@ -93,12 +93,16 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/b0958817-5f97-450
 
 # 7. Ubicación real de los elementos
 # 8. Implementación de la solución en los robots reales.
-Para la implementación del movimiento sobre el robot real, primero se realizó la calibración de la herramienta para configurar el *tooldata* correctamente. 
+Para la implementación del movimiento sobre el robot real, primero se subió la rutina en RAPID a la memoria del robot, usando un archivo "pgf" exportado de RobotStudio mediante un Flash Drive, al cargar el módulo al robot, se crearón dos nuevos objetos: EL marcador, objeto tipo herramienta, y "Pastel" Objeto de Trabajo(WorkObject).
 
-Para el movimiento sobre un plano horizontal, se realizó la calibración del WorkObjecto sobre un plano horizontal real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
+Posteriormente se realizó la calibración de la herramienta para configurar el *tooldata* de la herramienta "Marcador" correctamente, esta calibración se realizó usando el método de 4 puntos, donde se acerca la herramienta manualmente a una punta cónica con cuatro ángulos distintos y se evalúa la presición de la calibración mediante un movimiento de reorientacion.
+
+Para el WorkObject, la calibración consiste en el método de 3 puntos, donde se coloca la punta de la herramienta en el origen del sistema de coordenadas que estamos trabajando, en la dirección X, y en la dirección Y, en ese orden, para que el sistema infiera la dirección Z por medio de producto de matrices.
+
+Para el movimiento sobre un plano horizontal, se realizó la calibración del WorkObject sobre un plano horizontal real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/09f991a8-900e-4535-80b0-e8b4a91f5932
 
-Para el movimiento sobre un plano inclinado, se realizó la calibración del WorkObjecto sobre un plano inclinado real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
+Para el movimiento sobre un plano inclinado, se realizó la calibración del WorkObject sobre un plano inclinado real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/83f66e80-0ac9-4f75-965d-57e1d3276c18
