@@ -291,6 +291,18 @@ Para la simulación del movimiento sobre un plano inclinado, el WorkObject del p
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/b0958817-5f97-4500-a8f2-b5b780b69daa
 
 # 7. Ubicación real de los elementos
+Los elementos relevantes para el proceso con los robots reales son:
+- Manipulador
+- Controlador
+- Teach Pendant
+- Work Object
+
+En el siguiente plano de planta se muestran los elementos mencionados anteriormente con las distancias aproximadas entre sí.
+
+![](./Imgs/Plano.png)
+
+*Fig7.1: Plano de planta del proceso.*
+
 # 8. Implementación de la solución en los robots reales.
 Para la implementación del movimiento sobre el robot real, primero se subió la rutina en RAPID a la memoria del robot, usando un archivo "pgf" exportado de RobotStudio mediante un Flash Drive, al cargar el módulo al robot, se crearón dos nuevos objetos: EL marcador, objeto tipo herramienta, y "Pastel" Objeto de Trabajo(WorkObject).
 
