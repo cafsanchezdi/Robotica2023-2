@@ -19,12 +19,11 @@ Tabla de Contenidos
 - [1. Diseño de la herramienta](#1-diseño-de-la-herramienta)
 - [2. Diseño de la figura a dibujar con el robot](#2-diseño-de-la-figura-a-dibujar-con-el-robot)
 - [3. Incorporación de la herramienta dentro de RobotStudio](#3-incorporación-de-la-herramienta-dentro-de-robotstudio)
-- [4. Definición del WorkObject dentro de RobotStudio](#4-definición-del-workobject-dentro-de-robotstudio)
-- [5. Diseño de la trayectoria](#5-diseño-de-la-trayectoria)
-- [6. Programación en RAPID de la trayectoria](#6-programación-en-rapid-de-la-trayectoria)
-- [7. Simulación del movimiento del robot en Robot Studio](#7-simulación-del-movimiento-del-robot-en-robot-studio)
-- [8. Ubicación real de los elementos](#8-ubicación-real-de-los-elementos)
-- [9. Implementación de la solución en los robots reales](#9-implementación-de-la-solución-en-los-robots-reales)
+- [4. Diseño de la trayectoria](#4-diseño-de-la-trayectoria)
+- [5. Programación en RAPID de la trayectoria](#5-programación-en-rapid-de-la-trayectoria)
+- [6. Simulación del movimiento del robot en Robot Studio](#6-simulación-del-movimiento-del-robot-en-robot-studio)
+- [7. Ubicación real de los elementos](#7-ubicación-real-de-los-elementos)
+- [8. Implementación de la solución en los robots reales](#8-implementación-de-la-solución-en-los-robots-reales)
 
 
 La solución planteada se desarrolló siguiendo los siguientes pasos. En cada uno de los siguientes pasos se describe en detalle lo realizado.
@@ -77,9 +76,13 @@ Pasos de la incorporación:
 
 *Fig3.2: Herramienta ensamblada con el manipulador en RobotStudio.*
 
-# 4. Definición del WorkObject dentro de RobotStudio.
-# 5. Diseño de la trayectoria
-# 6. Programación en RAPID de la trayectoria.
-# 7. Simulación del movimiento del robot en Robot Studio.
-# 8. Ubicación real de los elementos
-# 9. Implementación de la solución en los robots reales.
+# 4. Diseño de la trayectoria
+Para el diseño de la trayectoria, se establece un sistema coordenado para el WorkObject, el cual será la base para definir la trayectoria.
+
+# 5. Programación en RAPID de la trayectoria.
+# 6. Simulación del movimiento del robot en Robot Studio.
+El WorkObject se coloca de manera que el plano xy sea paralelo al plano xy del mundo. En el siguiente video se presenta la simulación.
+[![](enlace_del_video)](enlace_del_video)
+
+# 7. Ubicación real de los elementos
+# 8. Implementación de la solución en los robots reales.
