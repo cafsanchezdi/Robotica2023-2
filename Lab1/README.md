@@ -81,7 +81,7 @@ Pasos de la incorporación:
 # 4. Diseño de la trayectoria
 Para el diseño de la trayectoria, se establece un sistema coordenado para el WorkObject, el cual será la base para definir la trayectoria.
 La trayectoria sigue la lógica del siguiente diagrama de flujo:
-
+![](./Imgs/RobotLab1_drawio.png)
 
 # 5. Programación en RAPID de la trayectoria.
 # 6. Simulación del movimiento del robot en Robot Studio.
