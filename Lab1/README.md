@@ -93,3 +93,8 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/b0958817-5f97-450
 
 # 7. Ubicación real de los elementos
 # 8. Implementación de la solución en los robots reales.
+Para la implementación del movimiento sobre el robot real, primero se realizó la calibración de la herramienta para configurar el *tooldata* correctamente. 
+
+Para el movimiento sobre un plano horizontal, se realizó la calibración del WorkObjecto sobre un plano horizontal real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/09f991a8-900e-4535-80b0-e8b4a91f5932
