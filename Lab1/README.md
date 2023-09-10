@@ -82,10 +82,10 @@ Para el diseño de la trayectoria, se establece un sistema coordenado para el Wo
 # 5. Programación en RAPID de la trayectoria.
 # 6. Simulación del movimiento del robot en Robot Studio.
 Para la simulación del movimiento sobre un plano horizontal, el WorkObject se coloca de manera que el plano xy sea paralelo al plano xy del mundo. En el siguiente video se presenta la simulación.
-[![](https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Plano.mp4)](https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Plano.mp4)
+https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Plano.mp4
 
 Para la simulación del movimiento sobre un plano inclinado, el WorkObject del plano horizontal se rota  45 grados respecto a su eje y. En el siguiente video se presenta la simulación.
-[![](https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Inclinado.mp4)](https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Inclinado.mp4)
+https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab1/Videos/RS_Sim_Inclinado.mp4
 
 # 7. Ubicación real de los elementos
 # 8. Implementación de la solución en los robots reales.
