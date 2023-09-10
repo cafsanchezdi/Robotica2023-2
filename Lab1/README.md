@@ -59,6 +59,8 @@ Posteriormente, se utiliza la impresión 3D para manufacturar el soporte del mar
 *Fig1.4: Herramienta final.*
 
 # 2. Diseño de la figura a dibujar con el robot.
+Se optó por un diseño con las letras FELIC en la linea superior, CFSDZ en la línea inferior, un octágono que las rodeara, y un diamante en el centro, el rectángulo corresponde al área de trabajo definida para el work object del robot.
+![](./Imgs/robo1001.jpg)
 
 # 3. Incorporación de la herramienta dentro de RobotStudio.
 Pasos de la incorporación:
