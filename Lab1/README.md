@@ -14,7 +14,7 @@ En el repositorio de este laboratorio se encuentra lo siguiente:
 
 # Descripción de la solución planteada
 La solución planteada se desarrolló siguiendo los siguientes pasos. En cada uno de los siguientes pasos se describe en detalle lo realizado.
-## Diseño de la herramienta.
+## 1. Diseño de la herramienta.
 La herramienta del proceso corresponde a un marcador para escribir sobre papel. El diseño corresponde al diseño de un soporte que conecte el marcador con el flange del robot.
 
 El diseño tuvo en consideración lo siguiente:
@@ -33,29 +33,39 @@ Teniendo en cuenta lo anterior, se realiza el diseño del soporte y el marcador 
 
 ![](./Imgs/SoporteInventor.jpg)
 
-*Soporte diseñado en Inventor. Note que la base se encuentra sobre el plano xy y la punta no se alinea con el eje z.*
+*Fig1.1: Soporte diseñado en Inventor. Note que la base se encuentra sobre el plano xy y la punta no se alinea con el eje z.*
 
 ![](./Imgs/EnsambleInventor.jpg)
 
-*Herramienta diseñada y ensamblada en Inventor.*
+*Fig1.2: Herramienta diseñada y ensamblada en Inventor.*
 
 Posteriormente, se utiliza la impresión 3D para manufacturar el soporte del marcador en PLA. Se utiliza un resorte común y silicona para obtener la herramienta final:
 
 ![](./Imgs/Herramienta.jpeg)
 
+*Fig1.3: Herramienta final.*
 
-## Diseño de la figura a dibujar con el robot (incluye 5 letras de cada integrante y una decoración).
+## 2. Diseño de la figura a dibujar con el robot (incluye 5 letras de cada integrante y una decoración).
 
-## Incorporación de la herramienta dentro de RobotStudio.
-## Incorporación del WorkObject dentro de RobotStudio.
-## Programación en RAPID de la trayectoria.
-## Simulación del movimiento del robot en Robot Studio.
-## Implementación de la solución en los robots reales.
+## 3. Incorporación de la herramienta dentro de RobotStudio.
+Pasos de la incorporación:
+1. El ensamble de la herramienta se exporta en formato .STEP.
+2. Se importa el archivo en Robot Studio en "Importar geometría".
+3. Se define un sistema de coordenadas sobre la punta de la herramienta con el eje z alineado al marcador.
+4. Se crea la herramienta **Marcador** con la geometría y sistema coordenado definidos anteriormente.
+5. Se asocia la herramienta con el manipulador de tal manera que la herramienta quede sobre el flange (articulación 6).
 
-# Diagrama de flujo de acciones del robot
-# Plano de planta de la ubicación de cada uno de los elementos
-# Descripción de las funciones utilizadas
-# Código en RAPID del módulo utilizado para el desarrollo de la práctica
-# Video que contenga la simulación en RobotStudio así como la implementación de la práctica con los robots reales
+![](./Imgs/RS_Herramienta.jpg)
 
+*Fig3.1: Herramienta definida en RobotStudio con su TCP.*
 
+![](./Imgs/RS_Ensamble.jpg)
+
+*Fig3.2: Herramienta ensamblada con el manipulador en RobotStudio.*
+
+## 4. Definición del WorkObject dentro de RobotStudio.
+## 5. Diseño de la trayectoria
+## 6. Programación en RAPID de la trayectoria.
+## 7. Simulación del movimiento del robot en Robot Studio.
+## 8. Ubicación real de los elementos
+## 9. Implementación de la solución en los robots reales.
