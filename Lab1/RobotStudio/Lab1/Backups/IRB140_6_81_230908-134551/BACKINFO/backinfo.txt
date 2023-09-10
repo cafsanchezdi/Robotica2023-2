@@ -1,0 +1,38 @@
+#
+# Generated backup file, do not edit.
+#
+# Originally at: D:\UNAL\Robot\Labs\Lab1\RobotStudio\Lab1\Lab1\Virtual Controllers\TEMP\8405cceb-f4be-40b5-8c66-77e78a918ef2\backup.650566
+# 2023-09-08  13:45:51
+#
+>>SYSTEM_ID:
+VIRTUAL_USE
+
+>>PRODUCTS_ID:
+RobotWare Version: 6.15.03.00
+
+  RobotWare Base
+  English
+  Drive System IRB 120/140/260/360/910SC/1200/1400/1520/1600/1660ID
+  ADU-790A in position X3
+  ADU-790A in position Y3
+  ADU-790A in position Z3
+  IRB 140-6/0.8
+
+>>HOME:
+All public files and directories
+
+>>SYSPAR:
+SYS.cfg
+PROC.cfg
+MMC.cfg
+EIO.cfg
+SIO.cfg
+MOC.cfg
+
+
+>>TASK1: (T_ROB1,Feli.pgf,)
+SYSMOD\user.sys @ 
+PROGMOD\Module1.mod @ 
+
+
+>>EOF:
