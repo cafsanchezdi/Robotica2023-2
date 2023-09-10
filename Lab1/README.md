@@ -80,6 +80,8 @@ Pasos de la incorporación:
 
 # 4. Diseño de la trayectoria
 Para el diseño de la trayectoria, se establece un sistema coordenado para el WorkObject, el cual será la base para definir la trayectoria.
+La trayectoria sigue la lógica del siguiente diagrama de flujo:
+![](./Imgs/RobotLab1_drawio.png)
 
 # 5. Programación en RAPID de la trayectoria.
 Para la programación en RAPID de la trayectoria se utilizaron 3 tipos de dato: *tooldata*, *wobjdata*, y *robtarget*.
