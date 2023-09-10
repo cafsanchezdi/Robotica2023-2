@@ -59,8 +59,11 @@ Posteriormente, se utiliza la impresión 3D para manufacturar el soporte del mar
 *Fig1.4: Herramienta final.*
 
 # 2. Diseño de la figura a dibujar con el robot.
-Se optó por un diseño con las letras FELIC en la linea superior, CFSDZ en la línea inferior, un octágono que las rodeara, y un diamante en el centro, el rectángulo corresponde al área de trabajo definida para el work object del robot.
+Se optó por un diseño con las letras FELIC en la línea superior, CFSDZ en la línea inferior, un octágono que las rodeara, y un diamante en el centro, el rectángulo corresponde al área de trabajo definida para el work object del robot. Las dimensiones del ractángulo corresponden a un pastel 18 x 18 cm (para 20 personas).
+
 ![](./Imgs/robo1001.jpg)
+
+*Fig2.1: Diseño a dibujar con el Robot.*
 
 # 3. Incorporación de la herramienta dentro de RobotStudio.
 Pasos de la incorporación:
@@ -81,7 +84,10 @@ Pasos de la incorporación:
 # 4. Diseño de la trayectoria
 Para el diseño de la trayectoria, se establece un sistema coordenado para el WorkObject, el cual será la base para definir la trayectoria.
 La trayectoria sigue la lógica del siguiente diagrama de flujo:
+
 ![](./Imgs/RobotLab_drawio.png)
+
+*Fig4.1: Diagrama de flujo del movimiento del Robot.*
 
 # 5. Programación en RAPID de la trayectoria.
 Para la programación en RAPID de la trayectoria se utilizaron 3 tipos de dato: *tooldata*, *wobjdata*, y *robtarget*.
@@ -304,11 +310,11 @@ En el siguiente plano de planta se muestran los elementos mencionados anteriorme
 *Fig7.1: Plano de planta del proceso.*
 
 # 8. Implementación de la solución en los robots reales.
-Para la implementación del movimiento sobre el robot real, primero se subió la rutina en RAPID a la memoria del robot, usando un archivo "pgf" exportado de RobotStudio mediante un Flash Drive, al cargar el módulo al robot, se crearón dos nuevos objetos: EL marcador, objeto tipo herramienta, y "Pastel" Objeto de Trabajo(WorkObject).
+Para la implementación del movimiento sobre el robot real, primero se subió la rutina en RAPID a la memoria del robot, usando un archivo *.pgf* exportado de RobotStudio mediante un Flash Drive. Al cargar el módulo al robot, se crearon dos nuevos objetos: EL **Marcador**, objeto tipo herramienta (tooldata), y **Pastel** Objeto de Trabajo (WorkObject).
 
-Posteriormente se realizó la calibración de la herramienta para configurar el *tooldata* de la herramienta "Marcador" correctamente, esta calibración se realizó usando el método de 4 puntos, donde se acerca la herramienta manualmente a una punta cónica con cuatro ángulos distintos y se evalúa la presición de la calibración mediante un movimiento de reorientacion.
+Posteriormente, se realizó la calibración de la herramienta para configurar el *tooldata* de la herramienta **Marcador** correctamente, esta calibración se realizó usando el método de 4 puntos, donde se acerca la herramienta manualmente a una punta cónica con cuatro ángulos distintos y se evalúa la precisión de la calibración mediante un movimiento de reorientación.
 
-Para el WorkObject, la calibración consiste en el método de 3 puntos, donde se coloca la punta de la herramienta en el origen del sistema de coordenadas que estamos trabajando, en la dirección X, y en la dirección Y, en ese orden, para que el sistema infiera la dirección Z por medio de producto de matrices.
+Para el WorkObject, la calibración consiste en el método de 3 puntos, donde se coloca la punta de la herramienta en 3 puntos diferentes: el origen del sistema de coordenadas que estamos trabajando, en un punto en dirección X, y en un punto en dirección Y; en ese orden, para que el sistema infiera la dirección Z por medio del producto cruz entre vectores.
 
 Para el movimiento sobre un plano horizontal, se realizó la calibración del WorkObject sobre un plano horizontal real y se corrió el código del módulo. El resultado se presenta en el siguiente video:
 
