@@ -27,7 +27,7 @@ Tabla de Contenidos
 
 
 La solución planteada se desarrolló siguiendo los siguientes pasos. En cada uno de los siguientes pasos se describe en detalle lo realizado.
-# 1. Diseño de la herramienta.
+# 1. Diseño de la herramienta
 La herramienta del proceso corresponde a un marcador para escribir sobre papel. El diseño corresponde al diseño de un soporte que conecte el marcador con el flange del robot.
 
 El diseño tuvo en consideración lo siguiente:
@@ -58,14 +58,14 @@ Posteriormente, se utiliza la impresión 3D para manufacturar el soporte del mar
 
 *Fig1.4: Herramienta final.*
 
-# 2. Diseño de la figura a dibujar con el robot.
+# 2. Diseño de la figura a dibujar con el robot
 Se optó por un diseño con las letras FELIC en la línea superior, CFSDZ en la línea inferior, un octágono que las rodeara, y un diamante en el centro, el rectángulo corresponde al área de trabajo definida para el work object del robot. Las dimensiones del ractángulo corresponden a un pastel 18 x 18 cm (para 20 personas).
 
 ![](./Imgs/robo1001.jpg)
 
 *Fig2.1: Diseño a dibujar con el Robot.*
 
-# 3. Incorporación de la herramienta dentro de RobotStudio.
+# 3. Incorporación de la herramienta dentro de RobotStudio
 Pasos de la incorporación:
 1. El ensamble de la herramienta se exporta en formato .STEP.
 2. Se importa el archivo en Robot Studio en "Importar geometría".
@@ -89,7 +89,7 @@ La trayectoria sigue la lógica del siguiente diagrama de flujo:
 
 *Fig4.1: Diagrama de flujo del movimiento del Robot.*
 
-# 5. Programación en RAPID de la trayectoria.
+# 5. Programación en RAPID de la trayectoria
 Para la programación en RAPID de la trayectoria se utilizaron 3 tipos de dato: *tooldata*, *wobjdata*, y *robtarget*.
 
 Los dos primeros se definen al momento de la calibración y por tanto varían dependiendo de dónde se coloquen los elementos en la vida real.
@@ -287,7 +287,7 @@ MODULE Module1
     ENDPROC
 ENDMODULE
 ```
-# 6. Simulación del movimiento del robot en Robot Studio.
+# 6. Simulación del movimiento del robot en Robot Studio
 Para la simulación del movimiento sobre un plano horizontal, el WorkObject se coloca de manera que el plano xy sea paralelo al plano xy del mundo. En el siguiente video se presenta la simulación.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/63c66267-b9f9-43fa-b5f6-57248eb470ee
@@ -309,7 +309,7 @@ En el siguiente plano de planta se muestran los elementos mencionados anteriorme
 
 *Fig7.1: Plano de planta del proceso.*
 
-# 8. Implementación de la solución en los robots reales.
+# 8. Implementación de la solución en los robots reales
 Para la implementación del movimiento sobre el robot real, primero se subió la rutina en RAPID a la memoria del robot, usando un archivo *.pgf* exportado de RobotStudio mediante un Flash Drive. Al cargar el módulo al robot, se crearon dos nuevos objetos: EL **Marcador**, objeto tipo herramienta (tooldata), y **Pastel** Objeto de Trabajo (WorkObject).
 
 Posteriormente, se realizó la calibración de la herramienta para configurar el *tooldata* de la herramienta **Marcador** correctamente, esta calibración se realizó usando el método de 4 puntos, donde se acerca la herramienta manualmente a una punta cónica con cuatro ángulos distintos y se evalúa la precisión de la calibración mediante un movimiento de reorientación.
