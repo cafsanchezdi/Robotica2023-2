@@ -19,20 +19,33 @@ La herramienta del proceso corresponde a un marcador para escribir sobre papel. 
 
 El diseño tuvo en consideración lo siguiente:
 - El tamaño y forma del flange del robot real. El tamaño del flange y el tamaño y ubicación de los agujeros se obtiene del datasheet del robot en la página 61.
+
 ![](./Imgs/Flange.jpg)
-Plano del flange del robot. (Datasheet, pp 61).
+
+*Plano del flange del robot. (Datasheet, pp 61).*
+
 - El diámetro aproximado del marcador real a utilizar.
 - La herramienta debe estar apoyada sobre el plano xy con el eje z hacia arriba (para facilitar la incorporación de esta dentro de RobotStudio).
 - Colocación de un resorte para darle tolerancia al movimiento del robot.
 - La punta del marcador no debe quedar alineada con el eje z ya que incrementa la probabilidad de que se presenten singularidades durante el movimiento del robot.
 
 Teniendo en cuenta lo anterior, se realiza el diseño del soporte y el marcador en AutoDesk Inventor 2023. El resultado es el siguiente:
+
 ![](./Imgs/SoporteInventor.jpg)
-Soporte diseñado en Inventor. Note que la base se encuentra sobre el plano xy y la punta no se alinea con el eje z.
+
+*Soporte diseñado en Inventor. Note que la base se encuentra sobre el plano xy y la punta no se alinea con el eje z.*
+
 ![](./Imgs/EnsambleInventor.jpg)
-Herramienta diseñada y ensamblada en Inventor.
+
+*Herramienta diseñada y ensamblada en Inventor.*
+
+Posteriormente, se utiliza la impresión 3D para manufacturar el soporte del marcador en PLA. Se utiliza un resorte común y silicona para obtener la herramienta final:
+
+![](./Imgs/Herramienta.jpeg)
+
 
 ## Diseño de la figura a dibujar con el robot (incluye 5 letras de cada integrante y una decoración).
+
 ## Incorporación de la herramienta dentro de RobotStudio.
 ## Incorporación del WorkObject dentro de RobotStudio.
 ## Programación en RAPID de la trayectoria.
