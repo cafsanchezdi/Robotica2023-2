@@ -217,4 +217,16 @@ ENDMODULE
 ```
 
 # 4. Simulación del movimiento del robot en Robot Studio
+El siguiente video presenta la simulación en RobotStudio de la implementación del código anterior. Note que en la simulación, se activaba y desactivaba la entrada digital para simular lo que sucede en vida real cuando se presiona un pulsador y se suelta.
+
+En la simulación, el robot empieza totalmente desconfigurado en una posición arbitraria. Al darle comenzar, el robot se dirige a HOME. Se muestra cómo se va a posición de mantenimiento, se regresa a HOME, se realiza la escritura de la ecuación, se regresa a HOME y se termina yendo a posición de mantenimiento nuevamente.
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/8e7bae58-5ea7-4f2f-baa7-a0c621e52092
+
+
 # 5. Implementación de la solución en los robots reales
+En el siguiente video, se presenta la implementación de la práctica sobre el robot real IRB140. Una anotación a realizar es que el primer LED verde se encontraba con señal invertida (es decir, se enciende con la salida en 0 y se apaga con la salida en 1), por lo tanto en el video el comportamiento de dicho LED se ve al revés (encendido en HOME y, apagado en mantenimiento y en escritura). Esto se pudo arreglar desde el código RAPID cambiando los Set y Reset pero para no demorar a otros compañeros se decidió dejar así.
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/e2c1f81f-0ee3-4040-9f12-b2a3ed2a8606
+
+
