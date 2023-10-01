@@ -225,7 +225,7 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/8e7bae58-5ea7-4f2
 
 
 # 5. Implementación de la solución en los robots reales
-En el siguiente video, se presenta la implementación de la práctica sobre el robot real IRB140. Una anotación a realizar es que el primer LED verde se encontraba con señal invertida (es decir, se enciende con la salida en 0 y se apaga con la salida en 1), por lo tanto en el video el comportamiento de dicho LED se ve al revés (encendido en HOME y, apagado en mantenimiento y en escritura). Esto se pudo arreglar desde el código RAPID cambiando los Set y Reset pero para no demorar a otros compañeros se decidió dejar así.
+En el siguiente video, se presenta la implementación de la práctica sobre el robot real IRB140. Una anotación a realizar es que el primer LED está invertido (es decir, se enciende con la salida en 0 y se apaga con la salida en 1), por lo tanto en el video el comportamiento de dicho LED se ve al revés (encendido en HOME y, apagado en mantenimiento y en escritura). Esto se podría arreglar desde el código RAPID cambiando los Set y Reset pero para no demorar a otros compañeros se decidió dejar así. Además, el robot no terminó de escribir debido a que la zona de trabajo quedó fuera de su rango, lo cual se podría arreglar acercándole el tablero al robot, pero nuevamente se decidió dejar así para no demorar a otros compañeros.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/e2c1f81f-0ee3-4040-9f12-b2a3ed2a8606
 
