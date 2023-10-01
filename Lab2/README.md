@@ -33,6 +33,9 @@ En el laboratorio anterior, el problema con la escritura se dió por la holgura 
 
 También, se cambió el dibujo a realizar por la ecuación $e^{i\pi} + 1 = 0$. Esto con el fin de poder practicar la escritura con Robots y utilizar movimientos circulares/curvos del robot (en la letra "e", en el símbolo π y en el número 0).
 
+![](./Imgs/lab2d.png)
+
+*Fig1.2: Dibujo a realizar, con coordenadas de los puntos relevantes.*
 # 2. Descripción de la solución
 La idea es lograr recibir 2 señales digitales de entrada, realizar ciertos procesos con el robot e indicar sobre dos señales digitales de salida. La solución planteada consiste en comenzar llevando el robot a HOME (todas las articulaciónes en 0 grados), para luego correr un bucle infinito (WHILTE TRUE) que revise las señales digitales de entrada y decida qué hacer en base a ellas (usando IF). Dentro de cada bloque de código IF se actualizan las señales digitales de salida para indicar lo correspondiente y se ejecuta una subrutina que realice la operación indicada.
 
