@@ -233,7 +233,7 @@ En el siguiente video, se presenta la implementación de la práctica sobre el r
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/e2c1f81f-0ee3-4040-9f12-b2a3ed2a8606
 
-![](./Imgs/Resultado.png)
+![](./Imgs/Resultado.jpg)
 
 *Fig5.1: Resultado de escritura obtenido.*
 
