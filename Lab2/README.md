@@ -36,6 +36,7 @@ También, se cambió el dibujo a realizar por la ecuación $e^{i\pi} + 1 = 0$. E
 ![](./Imgs/lab2d.png)
 
 *Fig1.2: Dibujo a realizar, con coordenadas de los puntos relevantes.*
+
 # 2. Descripción de la solución
 La idea es lograr recibir 2 señales digitales de entrada, realizar ciertos procesos con el robot e indicar sobre dos señales digitales de salida. La solución planteada consiste en comenzar llevando el robot a HOME (todas las articulaciónes en 0 grados), para luego correr un bucle infinito (WHILTE TRUE) que revise las señales digitales de entrada y decida qué hacer en base a ellas (usando IF). Dentro de cada bloque de código IF se actualizan las señales digitales de salida para indicar lo correspondiente y se ejecuta una subrutina que realice la operación indicada.
 
@@ -231,5 +232,9 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/8e7bae58-5ea7-4f2
 En el siguiente video, se presenta la implementación de la práctica sobre el robot real IRB140. Una anotación a realizar es que el primer LED está invertido (es decir, se enciende con la salida en 0 y se apaga con la salida en 1), por lo tanto en el video el comportamiento de dicho LED se ve al revés (encendido en HOME y, apagado en mantenimiento y en escritura). Esto se podría arreglar desde el código RAPID cambiando los Set y Reset pero para no demorar a otros compañeros se decidió dejar así. Además, el robot no terminó de escribir debido a que la zona de trabajo quedó fuera de su rango, lo cual se podría arreglar acercándole el tablero al robot, pero nuevamente se decidió dejar así para no demorar a otros compañeros.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/e2c1f81f-0ee3-4040-9f12-b2a3ed2a8606
+
+![](./Imgs/Resultado.png)
+
+*Fig5.1: Resultado de escritura obtenido.*
 
 
