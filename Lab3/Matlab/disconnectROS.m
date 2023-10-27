@@ -1,0 +1,3 @@
+function [] = disconnectROS()
+    rosshutdown;
+end

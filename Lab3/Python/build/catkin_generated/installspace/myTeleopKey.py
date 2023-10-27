@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+
+import rospy
+from geometry_msgs.msg import Twist
+from turtlesim.msg import Pose
+import keyboard
+
+# Variables globales
+turtlesim_pose = None
+key_mapping = {'w': [0, 1], 's': [0, -1], 'a': [1, 0], 'd': [-1, 0], 'r': 'reset', ' ': '180_degrees'}
+
+def pose_callback(data):
+    global turtlesim_pose
+    turtlesim_pose = data
+
+def main():
+    rospy.init_node('turtle_keyboard_control')
+    pub = rospy.Publisher('turtle1/cmd_vel', Twist, queue_size=10)
+    rospy.Subscriber('turtle1/pose', Pose, pose_callback)
+    rate = rospy.Rate(10)
+
+    while not rospy.is_shutdown():
+        if turtlesim_pose is not None:
+            twist = Twist()
+
+            key = keyboard.read_event(suppress=True).name
+            if key in key_mapping:
+                move = key_mapping[key]
+
+                if move == 'reset':
+                    reset_turtle_position()
+                elif move == '180_degrees':
+                    turn_180_degrees()
+                else:
+                    twist.linear.x = move[0]
+                    twist.angular.z = move[1]
+                    pub.publish(twist)
+
+            rate.sleep()
+
+def reset_turtle_position():
+    rospy.wait_for_service('turtle1/teleport_absolute')
+    try:
+        teleport_absolute = rospy.ServiceProxy('turtle1/teleport_absolute', Pose)
+        new_pose = Pose(x=5.5, y=5.5, theta=0.0)
+        teleport_absolute(new_pose)
+    except rospy.ServiceException as e:
+        print(f"Service call failed: {e}")
+
+def turn_180_degrees():
+    rospy.wait_for_service('turtle1/teleport_relative')
+    try:
+        teleport_relative = rospy.ServiceProxy('turtle1/teleport_relative', Pose)
+        new_pose = Pose(x=0, y=0, theta=3.14159265)
+        teleport_relative(new_pose)
+    except rospy.ServiceException as e:
+        print(f"Service call failed: {e}")
+
+if __name__ == '__main__':
+    main()

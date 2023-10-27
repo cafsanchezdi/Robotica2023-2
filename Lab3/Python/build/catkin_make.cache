@@ -1,0 +1,2 @@
+.
+-DCATKIN_DEVEL_PREFIX=/home/feli/Documents/Robotica/Lab3/Python/devel -DCMAKE_INSTALL_PREFIX=/home/feli/Documents/Robotica/Lab3/Python/install -G Unix Makefiles
