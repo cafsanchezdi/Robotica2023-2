@@ -397,28 +397,49 @@ if __name__ == '__main__':
 ```
 En la sección de Resultados, se observa en un video cómo ejecutar el script anterior desde la terminal y su funcionamiento.
 # 5. Resultados (videos) y Análisis
+Primero, se muestra el funcionamiento del script Matlab en Ubuntu.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/f3420785-a2e6-43ef-89b2-3d2f4c4006eb
 
+Ahora, se muestra el funcionamiento del script Matlab desde Matlab. Lo importante, es que en la consola de Matlab se presentan las poses que lee el subscriber.
+
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/25c8c284-a289-4d10-a634-c3075d46dd44
+
+La conexión de Matlab con ROS se demora, por eso al comienzo del video no sucede nada. También, es importante mencionar que una vez se crea el publisher y el subscriber, hay que esperar antes de comenzar a leer los mensajes del subscriber, ya que si no se espera, los mensajes están vacíos.
+
+En resumen, la conexión de Matlab con ROS tiene bastane latencia en las configuraciones iniciales. Ya una vez se configura todo, la comunicación si tiene buena velocidad.
+
+Finalmente, se muestra el funcionamiento del script de Python que controla la tortuga con el teclado.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/91bd3703-280e-403e-9dae-35ca98fb9452
 
+En el video se observa cómo se inicializa todo: primero, correr *roscore* en una terminal; luego, inicializar el simulador de la tortuga en otra terminal; y, por útlimo, correr el script Python con ROS.
+
+El código está hecho para hacer un único movimiento al presionar (si se deja presionada, no se va a mover más, toca presionar varias veces para mover varias veces). Sería interesante realizar un código más complejo que esté atento a cuando se presiona y suelta cada tecla para poder mover la tortuga como si fuera un videojuego.
+
+También, la tortuga logra recibir instrucciones mientras se mueve, haciendo que ajuste su movimiento en base a las nuevas instrucciones. Por ejemplo, si se manda la instrucción de ir hacia adelante, y mientras la tortuga avanza recibe la instrucción de rotar 180 grados, lo que sucede es que la tortuga avanza, rota y SIGUE avanzando en la otra dirección (hasta terminar de ejecutar toda la instrucción de ir hacia adelante).
+
 # 6. Conclusiones
 
-* **Comunicación eectiva con ROS**
+* **Comunicación efectiva con ROS**
 
 Durante el experimento, se demostró la capacidad de establecer una comunicación efectiva con ROS desde MATLAB, lo que permitió controlar la tortuga en el simulador. Esto resalta la importancia de ROS como plataforma de desarrollo en robótica y su utilidad como medio de enlazamiento entre dispositivos y entornos.
+
 * **Control de simulación**
 
  Se logró controlar el movimiento de la tortuga en el simulador utilizando MATLAB y Python. Se observó que la tortuga respondía a los comandos de manera precisa, lo que demuestra la versatilidad de ROS en el control de robots.
+
 * **Programación con MATLAB y Python**
 
 El experimento permitió familiarizarse con la programación en MATLAB y Python en el contexto de ROS. Estas habilidades son esenciales para desarrollar aplicaciones robóticas personalizadas.
+
 * **Subscripción y publicación de tópicos**
 
 Se demostró cómo suscribirse a un tópico para obtener información sobre la posición de la tortuga y cómo publicar mensajes para controlar su movimiento. Estos conceptos fundamentales son esenciales para la programación en ROS.
-* 
+
+* **Independencia del lenguaje**
+
+Se evidenció que ROS puede funcionar con diferentes lenguajes de programación de la misma manera. Se usó Matlab y Python para realizar la subscripción y publicación de topics, que funcionaban de la misma manera. Lo que cambia es el lenguaje y los comandos específicos, pero el funcionamiento es el mismo.
 
 
 
