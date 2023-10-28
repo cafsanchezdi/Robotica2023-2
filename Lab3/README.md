@@ -326,4 +326,12 @@ if __name__ == '__main__':
 ```
 En la sección de Resultados, se observa en un video cómo ejecutar el script anterior desde la terminal y su funcionamiento.
 # 5. Resultados (videos) y Análisis
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/f3420785-a2e6-43ef-89b2-3d2f4c4006eb
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/25c8c284-a289-4d10-a634-c3075d46dd44
+
 # 6. Conclusiones
+
+
+
