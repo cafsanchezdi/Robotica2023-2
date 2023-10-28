@@ -63,8 +63,21 @@ Crear un script en Matlab que permita suscribirse al tópico de pose de la simul
 Crear un script en Matlab que permita enviar todos los valores asociados a la pose de turtle1.
 * Sección de Python
 
+En el paquete hello turtle de ROS, en la carpeta de scripts, crear un script de Python, de nombre myTeleopKey.py
+Escribir un código que permita operar una tortuga del paquete turtlesim con el teclado, que cumpla con las siguientes especificaciones:
+• Se debe mover hacia adelante y hacia atrás con las teclas W y S
+• Debe girar en sentido horario y antihorario con las teclas D y A.
+• Debe retornar a su posición y orientación centrales con la tecla R
+• Debe dar un giro de 180° con la tecla ESPACIO
 
-- Recopilación de datos
+Incluir el script que se acaba de crear en el apartado de catkin install python del archivo CMakeLists.txt, siguiendo la misma estructura de los otros scripts ya incluidos.
+Lanzar una terminal, dirigirse al directorio del workspace de catkin y escribir el comando catkin make para hacer build en el paquete modificado.
+Con Linux operando lanzar 3 terminales. En la primera terminal escribir el comando roscore para iniciar el nodo maestro.
+En la segunda terminal escribir rosrun turtlesim turtlesim node.
+En la tercera terminal dirigirse al directorio que contiene el workspace de catkin y escribir source devel/setup.bash. Acto seguido escribir rosrun hello turtle myTeleopKey.py. En este punto, la terminal ya deber´ıa estar esperando el ingreso de teclas.
+Observar el movimiento de la tortuga con las teclas A, S, W y D, así como los cambios en la posición instantáneos con las teclas R y ESPACIO.
+- **Recopilación de datos**
+
 # 3. Código Matlab
 A continuación se presenta cada una de las funciones creadas en Matlab junto con una explicación de qué hace y cómo se usa.
 
