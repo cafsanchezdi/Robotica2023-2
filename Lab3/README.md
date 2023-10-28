@@ -388,5 +388,20 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/25c8c284-a289-4d1
 
 # 6. Conclusiones
 
+* **Comunicación eectiva con ROS**
+
+Durante el experimento, se demostró la capacidad de establecer una comunicación efectiva con ROS desde MATLAB, lo que permitió controlar la tortuga en el simulador. Esto resalta la importancia de ROS como plataforma de desarrollo en robótica y su utilidad como medio de enlazamiento entre dispositivos y entornos.
+* **Control de simulación**
+
+ Se logró controlar el movimiento de la tortuga en el simulador utilizando MATLAB y Python. Se observó que la tortuga respondía a los comandos de manera precisa, lo que demuestra la versatilidad de ROS en el control de robots.
+* **Programación con MATLAB y Python**
+
+El experimento permitió familiarizarse con la programación en MATLAB y Python en el contexto de ROS. Estas habilidades son esenciales para desarrollar aplicaciones robóticas personalizadas.
+* **Subscripción y publicación de tópicos**
+
+Se demostró cómo suscribirse a un tópico para obtener información sobre la posición de la tortuga y cómo publicar mensajes para controlar su movimiento. Estos conceptos fundamentales son esenciales para la programación en ROS.
+* 
+
+
 
 
