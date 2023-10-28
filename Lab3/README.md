@@ -24,7 +24,47 @@ Tabla de Contenidos
 - [6. Conclusiones](#6-conclusiones)
 
 # 1. Introducción
+
+En el presente laboratorio se presenta la prueba de conocimiento y funcionalidad del software ROS, implementado en un Sístema Operativo de código abierto compatible, y la prueba de conexión con los entornos de programación de MATLAB y Python.
+- **Qué es ROS.**
+
+ROS(Robot Operating System) es un entorno de desarrollo para software orientado a la robótica, este entorno funciona similar a un Sistema Operativo, permite crear conexiones y relaciones entre múltiples elementos robóticos de manera eficaz para simplificar su implementación. Provee control de dispositivos, simulación de entornos físicos, administración del Hardware, creación de directrices y relaciones maestro-esclavo, implementación de funcionalidad de uso común, comunicación entre los dispositivos, y mantenimiento de paquetes.
+- **Por qué usamos ROS.**
+
+Para poder trabajar en el medio robótico moderno, es necesario tomar ventaja de todas las herramientas a nuestro alcance, ROS nos provee de un medio de desarrollo mantenido por su comunidad, lo que nos permite desarrollar basados en trabajo establecido para alcanzar metas por medios más eficaces sin necesidad de tener que desarrollar un entorno o un medio de conexión desde ceros, además de poder apoyarnos en esta comunidad en caso de que se llegue a algún eprcance durante el proceso de desarrollo.
+
 # 2. Metodología
+- **Equipo.**
+
+Se requiere un PC capaz de soportar Ubuntu, ya sea mediante la implementación de una máquina virtual o la instalación de Ubuntu en la raíz de la máquina, se requiere una imagen de Ubuntu 20.04.xxx, puesto que esta es la última versión del SO compatible con ROS a conocimiento presente, versión reciente de Python con la librería rospy, MATLAB 2015+ con el Robotic Toolbox y espacio en disco suficiente para instalar y testear el software.
+- **Procedimiento**
+ 
+Con Linux operando lanzar 2 terminales.
+En la primera terminal escribir el comando roscore para iniciar el nodo maestro.
+En la segunda terminal escribir rosrun turtlesim turtlesim node.
+* Sección de MATLAB
+
+Lanzar una instancia de Matlab para Linux
+Crear un script con el siguiente código:
+```
+%%
+rosinit; %Conexión con nodo maestro
+%%
+velPub = rospublisher(’/turtle1/cmd_vel’,’geometry_msgs/Twist’); %Creaci´on publicador
+velMsg = rosmessage(velPub); %Creaci´on de mensaje
+%%
+velMsg.Linear.X = 1; %Valor del mensaje
+send(velPub,velMsg); %Envío
+pause(1)
+```
+Ejecutar las tres secciones del script y observar los resultados con la pose de la tortuga.
+
+Crear un script en Matlab que permita suscribirse al tópico de pose de la simulación de turtle1.
+Crear un script en Matlab que permita enviar todos los valores asociados a la pose de turtle1.
+* Sección de Python
+
+
+- Recopilación de datos
 # 3. Código Matlab
 A continuación se presenta cada una de las funciones creadas en Matlab junto con una explicación de qué hace y cómo se usa.
 
