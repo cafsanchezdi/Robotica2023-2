@@ -77,6 +77,8 @@ En la segunda terminal escribir rosrun turtlesim turtlesim node.
 En la tercera terminal dirigirse al directorio que contiene el workspace de catkin y escribir source devel/setup.bash. Acto seguido escribir rosrun hello turtle myTeleopKey.py. En este punto, la terminal ya deber´ıa estar esperando el ingreso de teclas.
 Observar el movimiento de la tortuga con las teclas A, S, W y D, así como los cambios en la posición instantáneos con las teclas R y ESPACIO.
 - **Recopilación de datos**
+  
+Se presentará a continuación el código implementado, junto con capturas de pantalla y videos que demuestren la implementación de ese mismo código.
 
 # 3. Código Matlab
 A continuación se presenta cada una de las funciones creadas en Matlab junto con una explicación de qué hace y cómo se usa.
