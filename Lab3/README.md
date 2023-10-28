@@ -402,6 +402,8 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/f3420785-a2e6-43e
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/25c8c284-a289-4d10-a634-c3075d46dd44
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/91bd3703-280e-403e-9dae-35ca98fb9452
+
 # 6. Conclusiones
 
 * **Comunicación eectiva con ROS**
