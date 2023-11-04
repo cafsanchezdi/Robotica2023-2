@@ -302,39 +302,41 @@ rosrun dynamixel_one_motor HMI.py
 
 El siguiente video resume todo el proceso anterior:
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/6e90e828-7ed8-499e-94ea-0c7733e86b5b
+
 
 # 5. HMI
 El siguiente video muestra el funcionamiento y uso de la interfaz HMI. Se puede observar la actualización en tiempo real de las posiciones de los motores (línea de texto inferior dentro la interfaz), siempre y cuando no se esté moviendo a un punto (mientras se mueve a un punto, se detiene la lectura de datos).
 
-
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/3ff9a900-c426-4442-adac-80e12b64cf1b
 
 # 6. Resultado Final
 El siguiente video muestra el uso de la interfaz HMI junto con el movimiento del robot real. En el video se observa cómo al inicializar la ejecución el robot se mueve al Home. Luego, se mueve el robot a cada una de las posiciones posibles usando la interfaz HMI.
 
-
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/0d6cd432-2f40-4cab-a8fe-6137007e1369
 
 # 7. Robot vs Simulación
 En esta sección se ilustran las imágenes obtenidas en la simulación de Matlab (Peter Corke) junto con las imágenes del robot real en dichas posiciones.
 
 - **Target 1 (Home)**
-![](./Imgs/Pose0Peter.jpg)
-![](./Imgs/Pose0.jpeg)
+  
+![](./Imgs/Pose0Peter.jpg) ![](./Imgs/Pose0.jpeg)
 
 - **Target 2**
-![](./Imgs/Pose1Peter.jpg)
-![](./Imgs/Pose1.jpeg)
+  
+![](./Imgs/Pose1Peter.jpg) ![](./Imgs/Pose1.jpeg)
 
 - **Target 3**
-![](./Imgs/Pose2Peter.jpg)
-![](./Imgs/Pose2.jpeg)
+  
+![](./Imgs/Pose2Peter.jpg) ![](./Imgs/Pose2.jpeg)
 
 - **Target 4**
-![](./Imgs/Pose3Peter.jpg)
-![](./Imgs/Pose3.jpeg)
+  
+![](./Imgs/Pose3Peter.jpg) ![](./Imgs/Pose3.jpeg)
 
 - **Target 5**
-![](./Imgs/Pose4Peter.jpg)
-![](./Imgs/Pose4.jpeg)
+  
+![](./Imgs/Pose4Peter.jpg) ![](./Imgs/Pose4.jpeg)
 
 # 8. Conclusiones
 
