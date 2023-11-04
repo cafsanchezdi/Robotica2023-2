@@ -304,7 +304,6 @@ El siguiente video resume todo el proceso anterior:
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/6e90e828-7ed8-499e-94ea-0c7733e86b5b
 
-
 # 5. HMI
 El siguiente video muestra el funcionamiento y uso de la interfaz HMI. Se puede observar la actualización en tiempo real de las posiciones de los motores (línea de texto inferior dentro la interfaz), siempre y cuando no se esté moviendo a un punto (mientras se mueve a un punto, se detiene la lectura de datos).
 
