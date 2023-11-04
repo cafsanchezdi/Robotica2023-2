@@ -244,7 +244,7 @@ Dentro de la interfaz gráfica se define un selector para definir cuál de los 5
 
 - La función *listener* lee las posiciones de las articulaciones usando el tópico *joint_states* del Dynamixel Workbench.
 
-- La función *moveJoint* recibe el id del motor y el valor deseado (goal), y manda el mensaje con la función *jointCommand* que se encarga de utilizar el servicio *dynamixel_command* del Dynamixel Workbench. La función también fija el límite de torque a 400 (valor establecido en el repositorio original).
+- La función *moveJoint* recibe el id del motor y el valor deseado (goal), y manda el mensaje con la función *jointCommand* que se encarga de utilizar el servicio *dynamixel_command* del Dynamixel Workbench. La función también fija el límite de torque a 400 (valor establecido en el repositorio original). El movimiento de los motores se realiza uno a uno (dos motores no se mueven nunca en simultáneo), tal como lo pide la guía.
 
 - La función *castDegreesToGoal* se utiliza en conjunto con *moveJoint*, con el fin de poder escribir la posición deseada en grados, y que se traduzca a bits tal como lo exigen los motores. Para definir esta conversión se tuvo en cuenta la figura:
 
