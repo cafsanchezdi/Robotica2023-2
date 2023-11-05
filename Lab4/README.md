@@ -30,9 +30,10 @@ En el presente laboratorio se prueban las capacidades de modelar apropiadamente 
 
 * Phantom X - Pincher
 
-El Pincher es un manipuldor robótico compuesto de 5 Servomotores conectados linealmente, con comunicación serial modular, para operarlo se requiere un Hub de potencia y comunicación con el controlador, el cual recibe instrucciones y transmite datos al PC mediante un puerto USB.
+El Pincher es un manipuldor robótico compuesto de 5 Servomotores conectados linealmente, con comunicación serial modular, para operarlo se requiere un Hub de potencia y comunicación con el controlador, el cual recibe instrucciones y transmite datos al PC mediante un puerto USB, el Robot tiene su propia interfaz de control que nos da acceso directo a la retroalimentación del robot, sin embargo para utilizarlo con ROS implementaremos la librería de ROS "Dynamixel Workbench", que nos provee de las funciones necesarias para hacer la comunicación con el manipulador.
 
-En términos de robótica, el Pincher tiene 4 Articulaciones, todas rotacionales, que le permiten alcanzar cualquier posición a la que su rango le permita llegar, el quinto servomotor se utiliza para accinar el efector final, que en este caso es la pinza sencilla que le da su nombre al manipulador.
+En términos de robótica, el Pincher tiene 4 Articulaciones, todas rotacionales, que le permiten alcanzar cualquier posición que se encuentre a su alcance, el quinto servomotor se utiliza para accionar el efector final, que en este caso es la pinza sencilla la cual le da su nombre al manipulador. Como es común con este tipo de manipuladores, la primera articulación es de base, gira alrededor del Eje Z del origen para permitir el posicionamiento del efector en un punto del plano XY de manera efectiva, mientras las demás articulaciones corresponden a hombro, codo, y muñeca, dedicadas al posicionamiento preciso del efector final.
+
 
 ![](./Imgs/Pose4.jpeg)
 
@@ -314,7 +315,7 @@ El siguiente video resume todo el proceso anterior:
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/6e90e828-7ed8-499e-94ea-0c7733e86b5b
 
 # 5. HMI
-El siguiente video muestra el funcionamiento y uso de la interfaz HMI. Se puede observar la actualización en tiempo real de las posiciones de los motores (línea de texto inferior dentro la interfaz), siempre y cuando no se esté moviendo a un punto (mientras se mueve a un punto, se detiene la lectura de datos).
+El siguiente video muestra el funcionamiento y uso de la interfaz HMI. Se puede observar la actualización en tiempo real de las posiciones de los motores (línea de texto inferior dentro la interfaz), siempre y cuando no se esté moviendo a un punto (mientras se mueve a un punto, se detiene la lectura de datos debido al tipo de comunicación con el sistema).
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/3ff9a900-c426-4442-adac-80e12b64cf1b
 
