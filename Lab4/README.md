@@ -26,6 +26,15 @@ Tabla de Contenidos
 - [8. Conclusiones](#8-conclusiones)
 
 # 1. Introducción
+En el presente laboratorio se prueban las capacidades de modelar apropiadamente el robot Phantom X Pincher y enlazarlo con la herramienta de entorno de robótica ROS.
+
+* Phantom X - Pincher
+
+El Pincher es un manipuldor robótico compuesto de 5 Servomotores conectados linealmente, con comunicación serial modular, para operarlo se requiere un Hub de potencia y comunicación con el controlador, el cual recibe instrucciones y transmite datos al PC mediante un puerto USB.
+
+En términos de robótica, el Pincher tiene 4 Articulaciones, todas rotacionales, que le permiten alcanzar cualquier posición a la que su rango le permita llegar, el quinto servomotor se utiliza para accinar el efector final, que en este caso es la pinza sencilla que le da su nombre al manipulador.
+
+![](./Imgs/Pose4.jpeg)
 
 # 2. Código Matlab (Peter Corke)
 ![](./Imgs/DH.jpg)
