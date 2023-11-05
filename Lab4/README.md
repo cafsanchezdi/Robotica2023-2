@@ -349,6 +349,10 @@ En esta sección se ilustran las imágenes obtenidas en la simulación de Matlab
 
 # 8. Conclusiones
 
-
+* Parámetros DH: Utilizando las dimensiones medidas, se obtuvieron los parámetros DH del robot Phantom X Pincher. Estos parámetros son esenciales para la modelización cinemática y control del robot.
+* Integración con ROS: Se desarrolló un script que utiliza ROS para controlar el movimiento de cada una de las articulaciones del robot Phantom X Pincher. El script realiza movimientos secuenciales entre posiciones angulares características, lo que permite controlar el robot de manera efectiva.
+* Validación de Poses: Se probaron varias poses del robot generadas a partir de valores articulares, asegurando que no interfirieran con los límites articulares ni con objetos en el espacio de trabajo.
+* Interfaz de Usuario (HMI): Se creó una interfaz de usuario que muestra información relevante, como los datos del grupo, una imagen perspectiva de la posición actual del manipulador, opciones para seleccionar poses predefinidas, valores articulares reales de cada motor y una representación gráfica de la posición actual del manipulador.
+* Comparación entre Simulación y Robot Real: Se verificó que las configuraciones obtenidas en la simulación coincidan con las configuraciones reales del robot Phantom X Pincher, lo que demuestra la validez de la simulación y el control.
 
 
