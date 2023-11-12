@@ -1,0 +1,9 @@
+Function paletizado_z
+	Pallet 1, Origen, EjeX, EjeY, 3, 3
+	#define estado_paletizado_z 11
+	On estado_paletizado_z
+	For i = 1 To 9
+		Jump Pallet(1, i)
+	Next
+	Off estado_paletizado_z
+Fend

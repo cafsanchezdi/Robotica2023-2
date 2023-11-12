@@ -1,0 +1,27 @@
+Function paletizadoZ
+	Pallet 1, Origen, EjeY, EjeX, 2, 3
+	Integer i
+	For i = 1 To 6
+		Jump Pallet(1, i)
+	Next
+Fend
+Function paletizadoS
+	Pallet 1, Origen, EjeY, EjeX, 2, 3
+	Jump Pallet(1, 1)
+	Jump Pallet(1, 2)
+	Jump Pallet(1, 4)
+	Jump Pallet(1, 3)
+	Jump Pallet(1, 5)
+	Jump Pallet(1, 6)
+Fend
+Function paletizadoExterno
+	Pallet Outside, 2, Origen, EjeY, EjeX, 2, 3
+	Integer i
+	Integer j
+	For i = 1 To 2
+		For j = 1 To 4
+			Jump Pallet(2, i, j)
+		Next
+	Next
+Fend
+

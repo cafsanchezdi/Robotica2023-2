@@ -1,0 +1,9 @@
+> main
+!!mainError: 3100, Syntax error.
+!!Error: 3100, Syntax error.
+> 
+> 
+> main
+!!Error: 3100, Syntax error.
+> 
+> 
