@@ -22,6 +22,7 @@ Tabla de Contenidos
 - [5. Implementación en el robot real](#5-implementación-en-el-robot-real)
 
 # 1. Introducción
+
 # 2. Programa en SPEL+
 Primero, definimos las funciones que se encargan de realizar los diferentes movimientos de paletizado (en forma de Z, en forma de S, y externo):
 ```
@@ -83,7 +84,38 @@ El código principal enciende el robot y define los parámetros de velocidad y a
 - Entrada 513 -> Paletizado en forma de S
 - Entrada 514 -> Paletizado externo
 Siempre se vuelve al **Home** después de realizar algún paletizado.
-# 3. Configuraciones preliminares
+
+# 3. Procedimiento
+A continuación, se presentan los pasos realizados durante la práctica.
+
+0. Conectarse al robot virtual y ejecutar el código en simulación para verificar su buen funcionamiento.
+1. Conectarse al robot físico mediante un cable USB con el software EpsonRC abierto.
+
+![](./Imgs/Connection.jpg)
+
+*Fig3.1: Lugar en EpsonRC donde se selecciona la conexión al robot real o virtual.*
+
+2. Definir manualmente los límites del espacio de trabajo.
+3. Definir manualmente la posición de Home del robot.
+4. Definir manualmente los 3 puntos del espacio de trabajo (Origen, EjeY, EjeX).
+
+![](./Imgs/ControlPanel.jpg)
+
+*Fig3.2: Dentro del RobotManager en el Control Panel se pueden liberar las articulaciones para que se puedan mover manualmente.*
+
+![](./Imgs/JogTeach.jpg)
+
+*Fig3.3: Dentro del RobotManager en el Jog & Teach se pueden guardar los puntos de robot real, y controlar el robot si se enciende.*
+
+5. Verificar los puntos definidos corriendo el comando **Jump**.
+6. Ejecutar el código en el robot real con **Power Low** (por seguridad).
+7. Ejecutar el código en el robot real con **Power High**.
+
+![](./Imgs/Run.jpg)
+
+*Fig3.4: Los códigos se pueden ejecutar desde el Run Window, que permite también definir la potencia y velocidad.*
 
 # 4. Simulación del movimiento del robot en EpsonRC
+
+
 # 5. Implementación en el robot real
