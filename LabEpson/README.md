@@ -141,3 +141,4 @@ A continuación se presenta un video del robot real realizando del proceso. Se a
 2. Entrada 513 -> Paletizado en forma de S
 3. Entrada 514 -> Paletizado externo
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/48106693-61d1-4a9a-9298-c6d5efe31cbc
