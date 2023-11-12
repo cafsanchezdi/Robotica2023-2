@@ -131,6 +131,8 @@ A continuación se presenta un video de la simulación virtual del proceso. Se a
 2. Entrada 513 -> Paletizado en forma de S
 3. Entrada 514 -> Paletizado externo
 
+El grabador de pantalla de Windows no captura la ventana del monitor I/O, por eso no se ve en el video cómo se activan las señales digitales.
+
 # 5. Implementación en el robot real
 A continuación se presenta un video del robot real realizando del proceso. Se activan las señales digitales en el siguiente orden:
 1. Entrada 512 -> Paletizado en forma de Z
