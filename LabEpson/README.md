@@ -131,6 +131,8 @@ A continuación se presenta un video de la simulación virtual del proceso. Se a
 2. Entrada 513 -> Paletizado en forma de S
 3. Entrada 514 -> Paletizado externo
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/44d01b17-a00c-4e97-a0fb-8a77fa9d89f2
+
 El grabador de pantalla de Windows no captura la ventana del monitor I/O, por eso no se ve en el video cómo se activan las señales digitales.
 
 # 5. Implementación en el robot real
@@ -139,3 +141,4 @@ A continuación se presenta un video del robot real realizando del proceso. Se a
 2. Entrada 513 -> Paletizado en forma de S
 3. Entrada 514 -> Paletizado externo
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/48106693-61d1-4a9a-9298-c6d5efe31cbc
