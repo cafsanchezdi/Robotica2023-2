@@ -107,19 +107,23 @@ A continuación, se presentan los pasos realizados durante la práctica.
 
 *Fig3.3: Dentro del RobotManager en el Jog & Teach se pueden guardar los puntos de robot real, y controlar el robot si se enciende.*
 
+![](./Imgs/Home.jpg)
+
+*Fig3.4: Dentro del RobotManager en el Home Config se puede guardar/configurar la posición de Home del robot.*
+
 5. Verificar los puntos definidos corriendo el comando **Jump**.
 6. Ejecutar el código en el robot real con **Power Low** (por seguridad).
 7. Ejecutar el código en el robot real con **Power High**.
 
 ![](./Imgs/Run.jpg)
 
-*Fig3.4: Los códigos se pueden ejecutar desde el Run Window, que permite también definir la potencia y velocidad.*
+*Fig3.5: Los códigos se pueden ejecutar desde el Run Window, que permite también definir la potencia y velocidad.*
 
 Tanto para la simulación como para el robot real, se requiere de ejecutar el código desde el *Run Window*, y abrir el **I/O Monitor** para enviar las señales digitales que activan las funciones de paletizado.
 
 ![](./Imgs/IO.jpg)
 
-*Fig3.5: El monitor I/O permite visualizar el estado de los bits (entrada o salida) y activar o desactivar bits de entrada.*
+*Fig3.6: El monitor I/O permite visualizar el estado de los bits (entrada o salida) y activar o desactivar bits de entrada.*
 
 # 4. Simulación del movimiento del robot en EpsonRC
 A continuación se presenta un video de la simulación virtual del proceso. Se activan las señales digitales en el siguiente orden:
