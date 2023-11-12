@@ -7,7 +7,7 @@
 # Contenido
 En el repositorio de este laboratorio se encuentra lo siguiente:
 - README.md -> Archivo base con la descripción del laboratorio.
-- EpsonRC -> Carpeta que contiene el proyecto de Epson RC+ utilizada durante la práctica.
+- EpsonRC -> Carpeta que contiene el proyecto de Epson RC+ utilizado durante la práctica.
 - Imgs -> Carpeta con imágenes utilizadas en el archivo README.
 - Videos -> Carpeta con los videos resultantes del desarrollo de la práctica.
 
@@ -115,7 +115,21 @@ A continuación, se presentan los pasos realizados durante la práctica.
 
 *Fig3.4: Los códigos se pueden ejecutar desde el Run Window, que permite también definir la potencia y velocidad.*
 
-# 4. Simulación del movimiento del robot en EpsonRC
+Tanto para la simulación como para el robot real, se requiere de ejecutar el código desde el *Run Window*, y abrir el **I/O Monitor** para enviar las señales digitales que activan las funciones de paletizado.
 
+![](./Imgs/IO.jpg)
+
+*Fig3.5: El monitor I/O permite visualizar el estado de los bits (entrada o salida) y activar o desactivar bits de entrada.*
+
+# 4. Simulación del movimiento del robot en EpsonRC
+A continuación se presenta un video de la simulación virtual del proceso. Se activan las señales digitales en el siguiente orden:
+1. Entrada 512 -> Paletizado en forma de Z
+2. Entrada 513 -> Paletizado en forma de S
+3. Entrada 514 -> Paletizado externo
 
 # 5. Implementación en el robot real
+A continuación se presenta un video del robot real realizando del proceso. Se activan las señales digitales en el siguiente orden:
+1. Entrada 512 -> Paletizado en forma de Z
+2. Entrada 513 -> Paletizado en forma de S
+3. Entrada 514 -> Paletizado externo
+
