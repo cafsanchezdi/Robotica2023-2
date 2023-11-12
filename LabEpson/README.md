@@ -17,11 +17,25 @@ Tabla de Contenidos
 
 - [1. Introducción](#1-introducción)
 - [2. Programa en SPEL+](#2-programa-en-spel+)
-- [3. Configuraciones preliminares](#3-configuraciones-preliminares)
+- [3. Procedimiento](#3-procedimiento)
 - [4. Simulación del movimiento del robot en EpsonRC](#4-simulación-del-movimiento-del-robot-en-epsonrc)
 - [5. Implementación en el robot real](#5-implementación-en-el-robot-real)
 
 # 1. Introducción
+
+Esta práctica se realiza en los laboratorios de CDM (Control de Movimiento), con un robot SCARA.
+
+## Robot Scara
+
+El robot Scara (Selective Compliance Assembly Robot Arm) es conocido por su estructura de brazo articulado que permite movimientos rápidos y precisos en el plano horizontal. Su diseño lo hace ideal para tareas de ensamblaje y manipulación, y su versatilidad lo convierte en una opción valiosa en entornos industriales. En esta práctica se realizarán tareas de paletizado que pueden resultar bastante útiles en la industria alimentaria.
+
+## Lenguaje SPEL+
+
+Para dar vida a las capacidades del robot Scara, utilizamos el lenguaje de programación SPEL+. Este lenguaje, específicamente desarrollado para robots Epson, permite una programación eficiente y precisa de movimientos y funciones. SPEL+ proporciona las herramientas necesarias para controlar el robot de manera efectiva y crear secuencias de acciones complejas con facilidad.
+
+## Objetivo del Proyecto: Paletizados Eficientes y Precisos
+
+En esta práctica, nos sumergimos en el desafío de implementar un sistema de paletizado utilizando el robot Scara y el lenguaje SPEL+. El paletizado es una aplicación crucial en entornos industriales, implicando la disposición ordenada y eficiente de productos en paletas. Exploraremos las capacidades del robot Scara para realizar esta tarea de manera precisa y rápida, demostrando la integración efectiva de la simulación en EpsonRC y la ejecución real en el entorno físico.
 
 # 2. Programa en SPEL+
 Primero, definimos las funciones que se encargan de realizar los diferentes movimientos de paletizado (en forma de Z, en forma de S, y externo):
