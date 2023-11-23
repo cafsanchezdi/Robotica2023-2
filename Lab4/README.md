@@ -281,6 +281,7 @@ Para configurar y ejecutar el proyecto se debe realizar lo siguiente, **CON EL R
 2. Correr el siguiente comando para compilar el proyecto:
 ```
 catkin_make
+source devel/setup.bash
 ```
 
 3. Correr el siguiente comando para ver dónde está conectado el robot real:
