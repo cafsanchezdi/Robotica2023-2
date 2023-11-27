@@ -115,7 +115,7 @@ $$
 
 ## Desacople de muñeca
 
-Se obtiene el punto $w$ sobre la articulación 4 (muñeca). Esto se logra tomando el punto objetivo y restándole la longitud requerida en dirección de approach. Para nuestro caso, el vector approach es $\pmatrix{x_0/\sqrt{x_0^2+y_0^2},y_0/\pmatrix{x_0^2+y_0^2},0}$, ya que el vector de approach para el TCP que definimos es paralelo al plano xy y queremos que apunte en dirección del objetivo.
+Se obtiene el punto $w$ sobre la articulación 4 (muñeca). Esto se logra tomando el punto objetivo y restándole la longitud requerida en dirección de approach. Para nuestro caso, el vector approach es $\pmatrix{\frac{x_0}{\sqrt{x_0^2+y_0^2}}\cr \frac{y_0}{\pmatrix{x_0^2+y_0^2}},0}$, ya que el vector de approach para el TCP que definimos es paralelo al plano xy y queremos que apunte en dirección del objetivo.
 
 $$
 \begin{align*}
@@ -127,8 +127,8 @@ $$
     \end{bmatrix}
     -L_4
     \begin{bmatrix}
-        x_0/\sqrt{x_0^2+y_0^2}\\
-        y_0/\sqrt{x_0^2+y_0^2}\\
+        \frac{x_0}{\sqrt{x_0^2+y_0^2}}\\
+        \frac{y_0}{\sqrt{x_0^2+y_0^2}}\\
         0
     \end{bmatrix}
 \end{align*}
@@ -158,6 +158,7 @@ $$
 Finalmente, se obtiene que los ángulos de las articulaciones son:
 
 $\mathbf{q_2}$ = $\frac{\pi}{2}-\alpha-\gamma$
+
 $\mathbf{q_3}$ = $\frac{\pi}{2}-\phi$   
 
 ## Unión de la muñeca
@@ -179,12 +180,14 @@ $$
 En resumen, se tiene que las ecuaciones de la cinemática inversa del robot son:
 
 <div align="center">
+
 |     Articulación      |              Ecuación               |
 | :-------------------: | :---------------------------------: |
 | $\mathbf{q_1}$        |           $atan2(y_0,x_0)$          |
 | $\mathbf{q_2}$        |     $\frac{\pi}{2}-\alpha-\gamma$   |
 | $\mathbf{q_3}$        |              $\pi-\phi$             |
 | $\mathbf{q_4}$        |        $\frac{\pi}{2}-q_2-q_3$      |
+
 </div>
 
 # 5. Código
