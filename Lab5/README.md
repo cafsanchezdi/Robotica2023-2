@@ -115,7 +115,7 @@ $$
 
 ## Desacople de muñeca
 
-Se obtiene el punto $w$ sobre la articulación 4 (muñeca). Esto se logra tomando el punto objetivo y restándole la longitud requerida en dirección de approach. Para nuestro caso, el vector approach es $\pmatrix{\frac{x_0}{\sqrt{x_0^2+y_0^2}}\cr \frac{y_0}{\pmatrix{x_0^2+y_0^2}},0}$, ya que el vector de approach para el TCP que definimos es paralelo al plano xy y queremos que apunte en dirección del objetivo.
+Se obtiene el punto $w$ sobre la articulación 4 (muñeca). Esto se logra tomando el punto objetivo y restándole la longitud requerida en dirección de approach. Para nuestro caso, el vector approach es $\pmatrix{\frac{x_0}{\sqrt{x_0^2+y_0^2}}\cr \frac{y_0}{\pmatrix{x_0^2+y_0^2}}\cr 0}$, ya que el vector de approach para el TCP que definimos es paralelo al plano xy y queremos que apunte en dirección del objetivo.
 
 $$
 \begin{align*}
