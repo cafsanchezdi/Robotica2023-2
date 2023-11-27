@@ -55,7 +55,7 @@ Se utilizó ROS junto con el entorno de trabajo de Dynamixel, todo implementado 
 Las rutinas requeridas se programaron en Python, involucrando el uso de la cinemática inversa para puntos específicos del robot. Los detalles de esta implementación se encuentran en la [sección 5](#5-código).
 
 ## Etapa 5: Integración de Rutinas con la HMI Desarrollada
-Se logró la integración entre la ejecución de las rutinas y la interfaz humano-máquina (HMI) desarrollada. Esta conexión, también implementada en Python, permitió la interacción intuitiva del usuario con el robot. Se detalla en la [sección 6](#6-hmi). Los resultados finales se pueden encontrar en la [sección 7](#7-resultads-y-videos).
+Se logró la integración entre la ejecución de las rutinas y la interfaz humano-máquina (HMI) desarrollada. Esta conexión, también implementada en Python, permitió la interacción intuitiva del usuario con el robot. Se detalla en la [sección 6](#6-hmi). Los resultados finales se pueden encontrar en la [sección 7](#7-resultados-y-videos).
 
 ## Nota Importante
 El proceso de desarrollo de las rutinas se basó en un enfoque de prueba y error debido a la incertidumbre inherente en el modelo de cinemática inversa, originada por las mediciones reales del robot. Esto permitió ajustes iterativos para mejorar la precisión y funcionalidad de las rutinas.
