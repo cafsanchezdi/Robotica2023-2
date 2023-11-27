@@ -89,13 +89,103 @@ El marcador se coloca sin tapa sobre el soporte mirando hacia abajo. El agujero 
 El diseño y fabricación de este soporte jugaron un papel fundamental en el correcto funcionamiento de las rutinas programadas, permitiendo una manipulación precisa y segura del marcador durante la ejecución de las tareas específicas del proyecto.
 
 ## Nota:
-Este soporte fue diseñado por: https://github.com/anhernadezdu/Laboratorio5_Cinematica-Inversa_PhantomX_ROS.
+El crédito por el diseño del soporte del marcador se lo debemos a: https://github.com/anhernadezdu/Laboratorio5_Cinematica-Inversa_PhantomX_ROS.
 
-Nosotros realizamos la impresión 3D de ambos portaherramientas. En este caso, debido a la baja resolución que se requiere y el hecho de que el portaherramientas no requiere soportar cargas pesadas, se realizó una impresión a alta velocidad y con bajo relleno para optimizar tiempos y material.
+Nosotros realizamos la impresión 3D de ambos portaherramientas. En este caso, debido a la baja resolución que se requiere y el hecho de que el portaherramientas no requiere soportar cargas pesadas, se realizó una impresión a alta velocidad (60 mm/s) y con bajo relleno (10%) para optimizar tiempos y material.
 
 # 4. Cinemática Inversa
 El desarrollo de la cinemática inversa se hizo en base al desarrollo que se realiza en el siguiente proyecto:
-https://github.com/cychitivav/px100_ikine
+https://github.com/cychitivav/px100_ikine.
+
+En el proyecto mencionado se utiliza un Pincher diferente al nuestro, por lo cual debemos ajustar las ecuaciones para nuestro caso. A continuación presentamos la deducción de la cinemática inversa para el robot en codo arriba (buscando evitar posibles choques con el tablero). La deducción se basa en el método geométrico con desacople de muñeca.
+
+![](./Imgs/InversaBase.jpg)
+
+*Fig4.1: Diagrama para deducir la cinemática inversa. Autor: https://github.com/cychitivav/px100_ikine.*
+
+Para la deducción de la cinemática inversa, suponemos que queremos llegar a la posición $\pmatrix{x_0\cr y_0\cr z_0}$ con orientación paralela al plano de la base del robot (tablero), ya que la sujeción del marcador se realiza del tal forma que queda perpendicular al eje del efector final. El TCP lo colocamos en la base del gripper con el approach en dirección del brazo del robot (perpendicular al gripper).
+
+Primero, es claro que el robot solamente puede llegar a una posición xy específica moviendo la articulación 1, de tal manera que se tiene:
+
+$$
+\begin{gather*}
+    q_1=atan2(y_0,x_0)
+\end{gather*}
+$$
+
+## Desacople de muñeca
+
+Se obtiene el punto $w$ sobre la articulación 4 (muñeca). Esto se logra tomando el punto objetivo y restándole la longitud requerida en dirección de approach. Para nuestro caso, el vector approach es $\pmatrix{x_0/\sqrt{x_0^2+y_0^2},y_0/\pmatrix{x_0^2+y_0^2},0}$, ya que el vector de approach para el TCP que definimos es paralelo al plano xy y queremos que apunte en dirección del objetivo.
+
+$$
+\begin{align*}
+    w&=
+    \begin{bmatrix}
+        x_0\\
+        y_0\\
+        z_0
+    \end{bmatrix}
+    -L_4
+    \begin{bmatrix}
+        x_0/\sqrt{x_0^2+y_0^2}\\
+        y_0/\sqrt{x_0^2+y_0^2}\\
+        0
+    \end{bmatrix}
+\end{align*}
+$$
+
+## Mecanismo 2R
+
+Para las articulaciones intermedias (2 y 3), se tiene un mecanismo 2R que define si se tiene codo arriba o codo abajo. Se busca que el robot alcance la posición $w$ (que está sobre el plano definido por $q_1$) con las dos articulaciones intermedias. Para esto, como queremos codo arriba, se tiene el siguiente diagrama
+
+![](./Imgs/CodoArriba.jpg)
+
+*Fig4.2: Mecanismo 2R codo arriba para las articulaciones intermedias. Autor: https://github.com/cychitivav/px100_ikine.*
+
+Para el mecanismo de nosotros, el Phantom no presenta la existencia del $\beta$ y $\psi$, por lo que $L_r=L_2$. Se definen, entonces, las siguientes variables:
+
+$$
+\begin{gather*}
+    r = \sqrt{x_w^2+y_w^2}\\
+    h = z_w-L_1\\
+    c = \sqrt{r^2+h^2}\\
+    \phi = \arccos{\frac{c^2-L_3^2-L_2^2}{-2L_2L_3}}\\
+    \gamma = \arctan2{(h,r)}\\
+    \alpha =  \arccos{\frac{L_3^2-L_2^2-c^2}{-2L_2c}}
+\end{gather*}
+$$
+
+Finalmente, se obtiene que los ángulos de las articulaciones son:
+
+$\mathbf{q_2}$ = $\frac{\pi}{2}-\alpha-\gamma$
+$\mathbf{q_3}$ = $\frac{\pi}{2}-\phi$   
+
+## Unión de la muñeca
+
+Ahora, para finalizar, el robot ya está sobre el plano requerido con $q_1$ y llega hasta la muñeca $w$ utilizando $q_2$ y $q_3$. Falta obtener la orientación requerida utilizando la articulación $q_4$. Para esto, considere el siguiente diagrama:
+
+![](./Imgs/Muñeca.jpg)
+
+*Fig4.3: Orientación sobre la muñeca. Autor: https://github.com/cychitivav/px100_ikine.*
+
+En el diagrama, $\theta_a$ es el ángulo entre el eje z del mundo y el vector de approach. Como queremos que este vector sea paralelo al plano xy, tenemos que $\theta_a=\frac{\pi}{2}$. Por lo tanto, se tiene:
+
+$$
+\begin{gather*}
+    q_4=\frac{\pi}{2}-q_2-q_3
+\end{gather*}
+$$
+
+En resumen, se tiene que las ecuaciones de la cinemática inversa del robot son:
+
+<div align="center">
+|     Articulación      |              Ecuación               |
+| :-------------------: | :---------------------------------: |
+| $\mathbf{q_1}$        |           $atan2(y_0,x_0)$          |
+| $\mathbf{q_2}$        |     $\frac{\pi}{2}-\alpha-\gamma$   |
+| $\mathbf{q_3}$        |              $\pi-\phi$             |
+| $\mathbf{q_4}$        |        $\frac{\pi}{2}-q_2-q_3$      |
+</div>
 
 # 5. Código
 
