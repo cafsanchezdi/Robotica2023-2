@@ -492,7 +492,9 @@ https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/84b5c324-1c97-4aa
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/7111a24c-cd37-44cc-8351-ef81c1902103
 
-Además, en el siguiente link, se encuentra un video subido en YouTube donde se muestra el resultado final en tiempo real, con el control siendo realizado desde la HMI y con comentarios extra.
+Además, en el siguiente link, se encuentra un video subido en YouTube donde se muestra el resultado final en tiempo real, con el control siendo realizado desde la HMI y con comentarios extra:
+
+https://youtu.be/uaOleFhyRAw
 
 # 8. Conclusiones
 
