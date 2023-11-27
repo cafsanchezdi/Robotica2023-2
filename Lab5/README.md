@@ -157,9 +157,9 @@ $$
 
 Finalmente, se obtiene que los ángulos de las articulaciones son:
 
-$\mathbf{q_2}$ = $\frac{\pi}{2}-\alpha-\gamma$
+$q_2$ = $\frac{\pi}{2}-\alpha-\gamma$
 
-$\mathbf{q_3}$ = $\frac{\pi}{2}-\phi$   
+$q_3$ = $\frac{\pi}{2}-\phi$   
 
 ## Unión de la muñeca
 
