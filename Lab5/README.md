@@ -21,7 +21,7 @@ Tabla de Contenidos
 - [4. Cinemática Inversa](#4-cinemática-inversa)
 - [5. Código](#5-código)
 - [6. HMI](#6-hmi)
-- [7. Videos](#7-videos)
+- [7. Resultados y Videos](#7-resultads-y-videos)
 - [8. Conclusiones](#8-conclusiones)
 
 # 1. Introducción
@@ -55,7 +55,7 @@ Se utilizó ROS junto con el entorno de trabajo de Dynamixel, todo implementado 
 Las rutinas requeridas se programaron en Python, involucrando el uso de la cinemática inversa para puntos específicos del robot. Los detalles de esta implementación se encuentran en la [sección 5](#5-código).
 
 ## Etapa 5: Integración de Rutinas con la HMI Desarrollada
-Se logró la integración entre la ejecución de las rutinas y la interfaz humano-máquina (HMI) desarrollada. Esta conexión, también implementada en Python, permitió la interacción intuitiva del usuario con el robot. Se detalla en la [sección 6](#6-hmi).
+Se logró la integración entre la ejecución de las rutinas y la interfaz humano-máquina (HMI) desarrollada. Esta conexión, también implementada en Python, permitió la interacción intuitiva del usuario con el robot. Se detalla en la [sección 6](#6-hmi). Los resultados finales se pueden encontrar en la [sección 7](#7-resultads-y-videos).
 
 ## Nota Importante
 El proceso de desarrollo de las rutinas se basó en un enfoque de prueba y error debido a la incertidumbre inherente en el modelo de cinemática inversa, originada por las mediciones reales del robot. Esto permitió ajustes iterativos para mejorar la precisión y funcionalidad de las rutinas.
@@ -190,10 +190,313 @@ En resumen, se tiene que las ecuaciones de la cinemática inversa del robot son:
 
 </div>
 
+Además, las mediciones realizadas sobre el robot real, tienen los siguientes valores:
+
+$L_1$ = 44.5 mm
+
+$L_2$ = 106 mm
+
+$L_3$ = 105 mm
+
+$L_4$ = 75 mm
+
 # 5. Código
 
+A continuación se presentan las diferentes funciones definidas referentes al control y ejecución de las rutinas del robot.
+
+## getJointAngles
+```
+def getJointAngles(x,y,z):
+    q1 = math.atan2(x,y)
+    w = np.array([x,y,z]) - L4 * np.array([x/np.sqrt(x**2+y**2),y/np.sqrt(x**2+y**2),0])
+    r = np.sqrt(w[0]**2+w[1]**2)
+    h = z - L1
+    c = np.sqrt(r**2+h**2)
+    phi = math.acos((c**2-L3**2-L2**2)/(-2*L2*L3))
+    gamma = math.atan2(h,r)
+    alpha = math.acos((L3**2-L2**2-c**2)/(-2*L2*c))
+    q2 = np.pi / 2 - alpha - gamma
+    q3 = np.pi / 2 - phi
+    q4 = np.pi / 2 - q2 - q3
+    toDeg = 180.0 / np.pi
+    return q1*toDeg, q2*toDeg, q3*toDeg, q4*toDeg
+```
+
+Esta función recibe la posición $x,y,z$ deseada y devuelve los ángulos de las 4 articulaciones en grados, utilizando las fórmulas de la cinemática inversa.
+
+## jointCommand
+```
+def jointCommand(command, id_num, addr_name, value, time):
+    rospy.wait_for_service('dynamixel_workbench/dynamixel_command')
+    try:        
+        dynamixel_command = rospy.ServiceProxy('/dynamixel_workbench/dynamixel_command', DynamixelCommand)
+        result = dynamixel_command(command,id_num,addr_name,value)
+        rospy.sleep(time)
+        return result.comm_result
+    except rospy.ServiceException as exc:
+        print(str(exc))
+```
+Esta fucnión utiliza el servicio del Dynamixel Workbench para enviar comandos a las articulaciones. Recibe el comando (que siempre es ''), el *id* del servo, el nombre del atributo del servo a definir, el valor del atributo a definir y un tiempo de espera.
+
+## moveJoint
+```
+def moveJoint(id, val, maxSpeed):
+    if(not (id in [1,2,3,4])):
+        raise RuntimeError("Wrong id!")
+    jointCommand('', id, 'Torque_Limit', TorqueMax, 0)
+    jointCommand('', id, 'Moving_Speed', maxSpeed, 0)
+    jointCommand('', id, 'Goal_Position', max(min(1023,val),0), 0)
+```
+Esta función recibe el *id* del servo a mover (valor de 1 a 4), el valor en bits de la posición objetivo y la velocidad máxima en bits a la que se debe mover el servo. Se utiliza la función *jointCommand* para enviarle al servo los comandos de torque límite, velocidad límite y posición objetivo, lo cual mueve al servo hasta la posición objetivo con un torque y velocidad máximos definidos.
+
+## moveRobot
+```
+def moveRobot(q1,q2,q3,q4,maxSpeed):
+    moveJoint(1, castDegreesToGoal(q1), maxSpeed)
+    moveJoint(2, castDegreesToGoal(q2), maxSpeed)
+    moveJoint(3, castDegreesToGoal(q3), maxSpeed)
+    moveJoint(4, castDegreesToGoal(q4), maxSpeed)
+```
+
+Esta función recibe los 4 ángulos de las articulaciones (en grados), y la velocidad máxima para el movimiento de los servos en bits (valor entre 0 y 1023). Esta función manda la señal de movimiento a los 4 en orden, aún cuando no se haya acabado de mover el servo anterior.
+
+## moveRobotInversa
+```
+def moveRobotInversa(x,y,z,maxSpeed):
+    q1, q2, q3, q4 = getJointAngles(x,y,z)
+    moveRobot(q1,q2,q3,q4,maxSpeed)
+```
+Esta función recibe la posición objetivo y una velocidad máxima, y utiliza las funciones definidas anteriormente para mover el robot a dicha posición con la velocidad limitada. Obtiene los ángulos de las articulaciones y mueve el robot.
+
+## abrirGriper
+```
+def abrirGriper(abierto):
+    jointCommand('', 5, 'Torque_Limit', 400, 0)
+    jointCommand('', 5, 'Moving_Speed', 1023, 0)
+    if(abierto):
+        jointCommand('', 5, 'Goal_Position', 512, 0)
+    else:
+        jointCommand('', 5, 'Goal_Position', 170, 0)
+```
+Esta función recibe un valor booleano (True o False), para definir si el gripper debe estar abierto o cerrado. Utiliza la función *jointCommand* con el *id* en 5, el cual es el servo del gripper.
+
+## castDegreesToGoal
+```
+def castDegreesToGoal(deg):
+    return round(3.41*deg + 511.5)
+```
+Esta función recibe un valor en grados y lo convierte en los bits que recibe el robot. Esta función define el Home del robot, ya que se encarga de definir el $0$ en grados al valor en bits requerido. Nuestro Home tiene al robot completamente vertical, con todos los servos en 512 bits.
+
+## Rutinas
+```
+def RecogerMarcador():
+    moveRobot(56,90,-90,90,100)
+    abrirGriper(True)
+    rospy.sleep(2)
+    moveRobot(56,90,0,0,20)
+    rospy.sleep(10)
+    abrirGriper(False)
+    rospy.sleep(2)
+    moveRobot(56,0,0,0,20)
+    rospy.sleep(2)
+    moveRobot(0,0,0,0,100)
+    rospy.sleep(2)
+
+def DescargarMarcador():
+    moveRobot(56,90,-90,90,50)
+    rospy.sleep(4)
+    moveRobot(56,90,0,0,20)
+    rospy.sleep(10)
+    abrirGriper(True)
+    rospy.sleep(2)
+    moveRobot(56,0,0,0,20)
+    rospy.sleep(2)
+    moveRobot(0,0,0,0,100)
+    rospy.sleep(2)
+
+def DibujarEspacio():
+    moveRobotInversa(-120,120,-85,15)
+    rospy.sleep(15)
+    moveJoint(1, castDegreesToGoal(45), 30)
+    rospy.sleep(5)
+    moveRobot(0,0,0,0,50) # Home
+
+def DibujarLetra():
+    moveRobotInversa(0,100,6,15)
+    rospy.sleep(10)
+    moveRobotInversa(10,100,2,15)
+    rospy.sleep(3)
+    moveRobotInversa(10,90,20,15)
+    rospy.sleep(3)
+    moveRobotInversa(0,90,20,15)
+    rospy.sleep(3)
+    moveRobotInversa(10,90,20,15)
+    rospy.sleep(3)
+    moveRobotInversa(10,70,39,15)
+    rospy.sleep(3)
+    moveRobot(0,0,0,0,50) # Home
+
+def DibujarFigura():
+    moveRobotInversa(-70,70,8,15)
+    rospy.sleep(15)
+    moveRobotInversa(-60,80,5,15)
+    rospy.sleep(3)
+    moveJoint(1, castDegreesToGoal(-10), 15)
+    rospy.sleep(5)
+    moveRobotInversa(-20,100,50,15)
+    rospy.sleep(10)
+    moveRobotInversa(100,100,-55,15)
+    rospy.sleep(10)
+    moveRobotInversa(70,100,-22,15)
+    rospy.sleep(3)
+    moveJoint(1, castDegreesToGoal(20), 15)
+    rospy.sleep(5)
+    moveRobot(0,0,0,0,50) # Home
+```
+Las rutinas utilizan las funciones de mover el robot tanto en directa como en inversa para realizar los movimientos deseados. Se cuadraron tiempos de espera con *rospy.sleep(...)* para que el robot lograra acabar el movimiento antes de comenzar uno nuevo. Al finalizar cada rutina, el robot regresa al Home.
+
 # 6. HMI
+A continuación se presentan las diferentes funciones definidas referentes al HMI del robot.
+
+## controlRobot
+```
+def controlRobot():
+    global ToolCargada
+    global TiempoRutina
+    Rutina = rutina.get()
+    if Rutina == 'Recoger Marcador' and not ToolCargada:
+        TiempoRutina = time.time()
+        RecogerMarcador()
+        TiempoRutina = time.time() - TiempoRutina
+        ToolCargada = True
+        return
+    else:
+        if not ToolCargada:
+            return
+        elif Rutina == 'Dibujar Espacio':
+            TiempoRutina = time.time()
+            DibujarEspacio()
+            TiempoRutina = time.time() - TiempoRutina
+            return
+        elif Rutina == 'Dibujar Letra':
+            TiempoRutina = time.time()
+            DibujarLetra()
+            TiempoRutina = time.time() - TiempoRutina
+            return 
+        elif Rutina == 'Dibujar Figura':
+            TiempoRutina = time.time()
+            DibujarFigura()
+            TiempoRutina = time.time() - TiempoRutina
+            return
+        elif Rutina == 'Descargar Marcador':
+            TiempoRutina = time.time()
+            DescargarMarcador()
+            TiempoRutina = time.time() - TiempoRutina
+            ToolCargada = False
+            return
+```
+Esta función es llamada por la HMI para ejecutar la rutina que el usuario esogió. Realiza el control sobre qué rutina se puede hacer en base a si ya se cargó el marcador o no. Y se encarga de tomar el tiempo que se demora la ejecución de la rutina.
+
+## STOP
+```
+def STOP():
+    exit()
+```
+Esta función detiene el programa de Python. Se debe mejorar más, ya que si el comando de movimiento ya se mandó al robot, el robot se seguirá moviendo hasta terminar su comando. Sin embargo, al ser un proyecto que no compromete la vida de las personas, es tolerable el problema.
+
+# Lectura de la posición de los servos
+```
+def callback(data):
+    toDeg = 180 / np.pi
+    angulo1 = round(data.position[0] * toDeg, 2)
+    angulo2 = round(data.position[1] * toDeg, 2)
+    angulo3 = round(data.position[2] * toDeg, 2)
+    angulo4 = round(data.position[3] * toDeg, 2)
+    position_label.config(text=f"q1: {angulo1}\nq2: {angulo2}\nq3: {angulo3}\nq4: {angulo4}\n")
+
+def listener():
+    rospy.init_node('joint_listener', anonymous=True)
+    rospy.Subscriber("/dynamixel_workbench/joint_states", JointState, callback)
+```
+Esta se encarga de crear un nodo en ROS que se suscribe topic del estado de las articulaciones. Con la función del callback, se leen los 4 ángulos de los servomotores y se convierten a grados para mostrarlos sobre la HMI en un formato fácil de leer.
+
+# update_gui
+```
+def update_gui():
+    global ToolCargada
+    global TiempoRutina
+    global TiempoInicial
+    listener() # Leer datos
+    time_label.config(text=f"Tiempo Total: {round(time.time() - TiempoInicial,0)} segundos")
+    rutina_label.config(text=f"Tiempo de Rutina: {round(TiempoRutina,2)} segundos")
+    tool_label.config(text=f"Marcador: {'Cargado' if ToolCargada else 'Descargado'}")
+    root.after(1000, update_gui)  # Actualizar
+```
+Esta función utiliza las variables globales que se utilizan para guardar el estado del robot y los tiempos de ejecución. Se encargda de leer la posición de los servos y de actualizar lo mostrado en la HMI. Esta función se ejecuta a si misma cada cierto tiempo para mantener la HMI actualizada con lo que ocurre en tiempo real.
+
+# Main
+```
+if __name__ == '__main__':
+    try:   
+        abrirGriper(True)
+        moveRobot(0,0,0,0,50) # Home
+    except rospy.ROSInterruptException:
+        pass
+
+    # Iniciar un hilo para la actualización de la GUI
+    update_gui()
+
+    root.mainloop() # HMI
+```
+Esta función es la que se ejecuta al correr el script. Al comenzar, abre el gripper y manda el robot a Home. Luego inicializa el hilo de la actualización de la HMI y ejecuta el hilo principal de la HMI realizada con la librería *tkinter*. Para ver más detalle sobre la creación de la HMI, remitirse al código del proyecto en 
+```
+Catkin/src/scripts/HMI.py
+```
+
+Finalmente, se presenta la HMI.
+
+![](./Imgs/HMI.jpg)
+
+*Fig6.1: HMI para el control del robot Phantom.*
+
+![](./Imgs/Rutinas.jpg)
+
+*Fig6.2: Rutinas disponibles dentro de la HMI.*
 
 # 7. Videos
+Para la configuración y ejecución del proyecto ROS. Ver https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab4/README.md.
+
+El robot se sujetó firmemente sobre el tablero para evitar que se moviera debido a sus movimientos, utilizando cinta y un elemento de madera, tal como se observa a continuación:
+
+![](./Imgs/SujecionRobot.jpg)
+
+*Fig7.1: Sujeción del robot al tablero.*
+
+El dibujo que se realiza sobre el tablero con el robot es el siguiente:
+
+![](./Imgs/FiguraFinal.jpg)
+
+*Fig7.2: Resultado final. Dibujo realizado sobre el tablero.*
+
+A continuación, se presentan 5 videos, los cuales corresponden cada uno a la realización de una de las 5 rutinas.
+
+
+Además, en el siguiente link, se encuentra un video subido en YouTube donde se muestra el resultado final en tiempo real, con el control siendo realizado desde la HMI y con comentarios extra.
 
 # 8. Conclusiones
+
+## Integración Exitosa de la HMI con el Robot
+La implementación de la HMI ha permitido un control eficiente y preciso del robot Phantom x100. La interfaz ha demostrado su capacidad para ejecutar rutinas predefinidas y manejar el marcador de manera óptima, facilitando las tareas de recogida, dibujo y descarga.
+
+## Ajustes Iterativos en la Cinemática Inversa
+La cinemática inversa ha sido un área de constante refinamiento debido a la incertidumbre inherente en las mediciones reales del robot. El enfoque de prueba y error ha sido fundamental para ajustar las rutinas y mejorar la precisión del movimiento.
+
+## Diseño y Fabricación del Soporte para el Marcador
+El diseño en CAD y la impresión 3D del soporte para el marcador han sido elementos clave para garantizar la estabilidad y la seguridad durante las tareas de manipulación. La no interferencia con el tablero y la facilidad para su colocación y extracción han sido logros significativos.
+
+## Experiencia en el Desarrollo y Control de Robots
+Este proyecto ha proporcionado una valiosa experiencia en el desarrollo de aplicaciones para el control de robots manipuladores. La comprensión de ROS, Dynamixel Workbench y la implementación de estrategias de control han sido aprendizajes fundamentales.
+
+En resumen, el éxito de este proyecto se refleja en la operatividad efectiva de la HMI, la mejora continua en la cinemática inversa, la funcionalidad del soporte para el marcador y la adquisición de habilidades prácticas en el campo de la robótica.
+
+Estos logros sientan una base sólida para futuras investigaciones y desarrollos en el control y manipulación de robots, ofreciendo oportunidades para la expansión y mejora de las capacidades del robot Phantom x100 en diversos escenarios de aplicación.
