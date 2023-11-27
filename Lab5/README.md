@@ -478,6 +478,8 @@ El dibujo que se realiza sobre el tablero con el robot es el siguiente:
 
 *Fig7.2: Resultado final. Dibujo realizado sobre el tablero.*
 
+El dibujo realizado se compone de un arco de circunferencia que encapsula el espacio de trabajo del robot, una letra E y dos rayones compuestos por una pequeña recta y un arco.
+
 A continuación, se presentan 5 videos, los cuales corresponden cada uno a la realización de una de las 5 rutinas.
 
 https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/7606777e-fb0c-441a-8cd8-aec7ab776aa0
