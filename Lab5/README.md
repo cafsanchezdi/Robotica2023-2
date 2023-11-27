@@ -474,7 +474,7 @@ El robot se sujetó firmemente sobre el tablero para evitar que se moviera debid
 
 El dibujo que se realiza sobre el tablero con el robot es el siguiente:
 
-![](./Imgs/FiguraFinal.jpg)
+![](./Imgs/FiguraFinal.jpeg)
 
 *Fig7.2: Resultado final. Dibujo realizado sobre el tablero.*
 
