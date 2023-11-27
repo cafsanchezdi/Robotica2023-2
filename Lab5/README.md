@@ -480,6 +480,15 @@ El dibujo que se realiza sobre el tablero con el robot es el siguiente:
 
 A continuación, se presentan 5 videos, los cuales corresponden cada uno a la realización de una de las 5 rutinas.
 
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/7606777e-fb0c-441a-8cd8-aec7ab776aa0
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/20f12bce-523e-4faf-814a-4666e6bdc21b
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/583297ca-4f59-45a1-8472-f43580eb0f08
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/84b5c324-1c97-4aa6-b144-788660bb35e3
+
+https://github.com/cafsanchezdi/Robotica2023-2/assets/45526932/7111a24c-cd37-44cc-8351-ef81c1902103
 
 Además, en el siguiente link, se encuentra un video subido en YouTube donde se muestra el resultado final en tiempo real, con el control siendo realizado desde la HMI y con comentarios extra.
 
