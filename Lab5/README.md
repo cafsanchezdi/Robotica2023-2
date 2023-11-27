@@ -21,7 +21,7 @@ Tabla de Contenidos
 - [4. Cinemática Inversa](#4-cinemática-inversa)
 - [5. Código](#5-código)
 - [6. HMI](#6-hmi)
-- [7. Resultados y Videos](#7-resultads-y-videos)
+- [7. Resultados y Videos](#7-resultados-y-videos)
 - [8. Conclusiones](#8-conclusiones)
 
 # 1. Introducción
