@@ -463,7 +463,7 @@ Finalmente, se presenta la HMI.
 
 *Fig6.2: Rutinas disponibles dentro de la HMI.*
 
-# 7. Videos
+# 7. Resultados y Videos
 Para la configuración y ejecución del proyecto ROS. Ver https://github.com/cafsanchezdi/Robotica2023-2/blob/main/Lab4/README.md.
 
 El robot se sujetó firmemente sobre el tablero para evitar que se moviera debido a sus movimientos, utilizando cinta y un elemento de madera, tal como se observa a continuación:
